@@ -102,8 +102,7 @@ skipToStringPattern fIn, "MALOTE malotes"
 
 Print "Parsing data for " & maxEnems & " enems..."
 
-j = 1
-do
+For j = 1 To maxEnems
 	Print "Reading . . ."
 	Line Input #fIn, auxStr
 	Print "Parsing: ";
@@ -117,7 +116,7 @@ do
 		'  x,  y, x1, y1, x2, y2, mx, my,  t
 		' Out:
 		' t, x, y, xx, yy, n, s1, s2
-		Print "> S" & ((j-1)\maxPants) & "." & ((j-1) Mod 3) & ".";
+		Print "> ";
 		d = numbers (8): Print Lcase (Hex (d, 2)) & " ";: Put #fOut, , d
 		d = numbers (2) \ 16: Print Lcase (Hex (d, 2)) & " ";: Put #fOut, , d
 		d = numbers (3) \ 16: Print Lcase (Hex (d, 2)) & " ";: Put #fOut, , d
@@ -127,9 +126,8 @@ do
 		d = i: Print Lcase (Hex (d, 2)) & " ";: Put #fOut, , d
 		Print "00 00"
 		d = 0: Put #fOut, , d: Put #fOut, , d
-		j = j + 1
 	End If
-Loop While j <= maxEnems
+Next j
 
 'Print
 
@@ -139,8 +137,7 @@ skipToStringPattern fIn, "HOTSPOT hotspots"
 
 Print "Parsing data for " & maxPants & " hotspots..."
 
-j = 1
-do 
+For j = 1 To maxPants
 	Print "Reading . . ."
 	Line Input #fIn, auxStr
 	Print "Parsing: ";
@@ -154,14 +151,13 @@ do
 		' xy t act
 		' Out: 	
 		' x y tipo
-		Print "> S" & (j-1) & ": ";
+		Print "> ";
 		d = numbers (0) Shr 4: Print Lcase (Hex (d, 2)) & " ";: Put #fOut, , d
 		d = numbers (0) And 15: Print Lcase (Hex (d, 2)) & " ";: Put #fOut, , d
 		d = numbers (1): Print Lcase (Hex (d, 2)) & " ": Put #fOut, , d
-		j = j + 1
 	End If	
 	'Print Chr (13)
-Loop While j <= maxPants Or Eof (fIn)
+Next j
 
 ' Print
 Print "DONE!"
