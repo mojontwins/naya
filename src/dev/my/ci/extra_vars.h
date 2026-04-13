@@ -26,8 +26,10 @@ unsigned char umbral_points = 0;
 unsigned char special_ene = 0;
 
 typedef struct {
-    unsigned char boss_x, boss_y;
-} BOSS;
+    unsigned char x,y;
+} BOSS_SHOOT;
+
+BOSS_SHOOT boss_shoot[6];
 
 unsigned char gbx, gby;
 

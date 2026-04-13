@@ -112,8 +112,7 @@ void main (void) {
 		#endif
 
 		umbral_points = 0;
-		level = 2;  //jfjara
-		slevel = 0;
+	
 		
 		points = 0;
 		max_shoots = 1;
@@ -180,19 +179,19 @@ void main (void) {
 				// Clear screen and show game frame
 				cortina ();
 				sp_UpdateNow();
-				#ifdef MODE_128K
-					// Resource 1 = marco.bin
-					get_resource (MARCO_BIN, 16384);
-				#else		
-					#asm
-						ld hl, _s_marco
-						ld de, 16384
-						call depack
-					#endasm
-				#endif
+				get_resource (MARCO_BIN, 16384);
+	
 			#endif
-			//n_pant = 2;
+			n_pant = 27;
+			boss = 0;
+			boss_action = 0;
+                b_aux = 0;
+                boss_aux_1 = 1; //izq
+                boss_x = 12;
+                boss_y = 1;
+				boss_aux_2 = 1; // arriba
 			// Let's do it.
+
 			#include "mainloop/game_loop.h"
 
 			#ifdef COMPRESSED_LEVELS
@@ -201,7 +200,7 @@ void main (void) {
 						//PLAY_MUSIC (6);
 					#endif
 					
-					if (silent_level == 0) zone_clear ();
+					//if (silent_level == 0) zone_clear ();
 
 					#ifdef ACTIVATE_SCRIPTING
 						if (script_result != 3)

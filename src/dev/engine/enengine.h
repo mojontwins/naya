@@ -202,7 +202,7 @@ void enems_load (void) {
 		enoffsmasi = enoffs + enit;		
 		
 		if (malotes [enoffsmasi].life > 0) {
-			malotes [enoffsmasi].life = level_data.enems_life;
+			malotes [enoffsmasi].life = 2;
 		}
 
 		#ifdef RESPAWN_ON_ENTER
@@ -830,6 +830,7 @@ void enems_move (void) {
 							PLAY_MUSIC (1);
 						}
 						print_points();
+						check_points();
 	
 						#ifdef MODE_128K
 							en_an_state [enit] |= GENERAL_DYING;

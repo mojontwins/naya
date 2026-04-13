@@ -7,6 +7,8 @@
 	blackout_area ();
 	STOP_SOUND();
 	espera_activa (10);
+
+	PLAY_MUSIC(15);
 	
 	level_str [7] = 49 + level;
 	level_str[12] = 49 + slevel;

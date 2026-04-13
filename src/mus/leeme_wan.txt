@@ -1,0 +1,22 @@
+Wan, machaca todo esto sobre lo que tienes y tal y cual Pascual por el culo no me vas a dal.
+
+He renombrado todo para que las músicas de los niveles se ajusten. Eso de ingame_a, ingame_b no tenía sentido.
+
+En principio los niveles 1 y 2 están muy muy avanzados. Sólo necesito catarlos ingame para ver si las músicas no revientan mucho los sesos y no se hacen muy repetitivas.
+
+Tienes un "level.mus" que es para poner en la pantalla que sale en negro y en letras "LEVEL X-X".
+
+Tienes un "level_boss.mus" que es lo que hemos hablado hoy en plan rollo WARNING. Si el puto ordenador de puta mierda este lo permite sería lo suyo poner que suene esa mierda en buckler mientras está la pantalla en negro y al entrar al jefe que ya empiece a sonar "boss.mus".
+
+He puesto un "level3-1" que es para cuando montes el mundo del espacio lo pruebes. Va a dar el pego total.
+
+Para los bonus he pensado en meter dos músicas que se vayan alternando. Entiendo que sin son 5 mundos habrá 4 bonus. Bonus 1 y Bonus 2 - Bonus 1 y Bonus 2. Como los bonus durán poquísimo lo ideal sería que la música de bonus empezara a sonar en el mismo momento que entra la pantalla negra con las letras de BONUS LEVEL y eso va a quedar muy pro.
+
+Cualquier cosa, hablamos y follamos por el culo.
+
+Siempre tuyo,
+Murciano.
+
+
+
+

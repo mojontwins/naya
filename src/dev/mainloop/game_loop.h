@@ -106,6 +106,8 @@
 
 	o_pant = 0xff;
 	print_points();
+	draw_player_sublives();
+	sp_UpdateNow();
 
 	while (playing) {
 		#asm
@@ -125,6 +127,7 @@
 		if (o_pant != n_pant) {
 			#include "my/ci/before_entering_screen.h"
 			draw_scr ();
+			
 			o_pant = n_pant;
 			shoots = 0;
 			boss_aux_2 = 1;
@@ -172,11 +175,9 @@
 				draw_player_sublives();
 				
 				if (slevel == 3) {
-					_x = 0; _y = 0; _t = slevel; print_number_wan ();
 					PLAY_MUSIC (10);
-				}else {
+				} else {
 					PLAY_MUSIC (levels [level].music_id + slevel);
-					_x = 10; _y = 0; _t = slevel; print_number_wan ();
 				}
 				continue;
 			}

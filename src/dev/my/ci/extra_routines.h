@@ -15,6 +15,8 @@ if (boss == 1) {
         play_boss1();
     } else if (level == 1) {
         play_boss2();
+    } else if (level == 2) {
+        play_boss3();
     }
     
 }
@@ -64,6 +66,8 @@ if (stage_clear_animation == 1) {
             slevel = 0;
             level++;
             prepare_level();
+            o_pant = 99;
+            restart_level();
         } else {
             slevel++;
         }
@@ -84,6 +88,14 @@ if (stage_clear_animation == 1) {
             timer_t = 60;
             #include "my/level_boss_screen.h"
             gpy = PLAYER_INI_Y << 4; p_y = gpy << 6 - 8;
+            if (level == 2) {
+                boss_action = 0;
+                b_aux = 0;
+                boss_aux_1 = 1; //izq
+                boss_x = 12;
+                boss_y = 1;
+                boss_aux_2 = 0; // total balas
+            }
         } else if (slevel == 4) {
             n_pant = 1;
             timer_t = 10;
@@ -98,8 +110,7 @@ if (stage_clear_animation == 1) {
             timer_t = 99;  
             #include "my/level_screen.h"
             total_candies = 0;
-            draw_candy_level();
-            draw_player_sublives();
+            //draw_candy_level();
         }
         
         timer_on = 1;

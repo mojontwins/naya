@@ -39,9 +39,11 @@ void enems_kill (void);
 void enems_move (void);
 void play_boss1();
 void play_boss2();
+void play_boss3();
 void move_boss(signed char increase_x, signed char increase_y, unsigned char tile, unsigned char offset);
 void lunge(unsigned char increase);
 void circle_movement();
+void move_boss_3(signed char xinc, signed char yinc);
 
 // general.h
 unsigned char collide (void);
@@ -131,6 +133,7 @@ void draw_player_sublives(void);
 void print_points(void) ;
 void clear_gamezone() ;
 void up_live(unsigned char flag);
+void check_points(void);
 
 // savegame.h
 void mem_save (void);

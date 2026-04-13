@@ -7,15 +7,16 @@ void prepare_level (void) {
 	#ifdef MODE_128K
 		get_resource (levels [level].resource_id, (unsigned int) (level_data));
 		
-		#ifdef ACTIVATE_SCRIPTING
-			if (script_result != 3)
-		#else
-			if (warp_to_level == 0)
-		#endif
+		// #ifdef ACTIVATE_SCRIPTING
+		// 	if (script_result != 3)
+		// #else
+		// 	if (warp_to_level == 0)
+		// #endif
 		{
 			n_pant = level_data.scr_ini;
 			gpx = level_data.ini_x << 4; p_x = gpx << 6;
 			gpy = level_data.ini_y << 4; p_y = gpy << 6;
+			
 		}
 
 		#ifdef ACTIVATE_SCRIPTING

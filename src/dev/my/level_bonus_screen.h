@@ -7,6 +7,13 @@
 	blackout_area ();
 	STOP_SOUND();
 	espera_activa (10);
+
+	if (level & 1) {
+		PLAY_MUSIC (9);
+	} else {
+		PLAY_MUSIC (16);
+	}
+	
 	
 	level_str [7] = 49 + level;
 	level_str[12] = 49 + slevel;
@@ -19,5 +26,5 @@
 	// #endif
 
 	espera_activa (300);
-	PLAY_MUSIC (9);
+	
 }

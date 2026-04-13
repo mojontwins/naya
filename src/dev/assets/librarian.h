@@ -11,47 +11,47 @@ typedef struct {
 
 RESOURCE resources [] = {
     { 3, 0xC000 },
-    { 3, 0xCF99 },
-    { 3, 0xDEBF },
-    { 3, 0xEDC4 },
+    { 3, 0xCFCA },
+    { 3, 0xDF63 },
+    { 3, 0xEE68 },
     { 4, 0xC000 },
-    { 4, 0xCEBB },
-    { 4, 0xD72D },
-    { 4, 0xDF16 },
-    { 4, 0xE673 },
-    { 4, 0xED49 },
-    { 4, 0xF41F },
+    { 4, 0xCEA4 },
+    { 4, 0xD716 },
+    { 4, 0xDEFF },
+    { 4, 0xE66E },
+    { 4, 0xEDCB },
+    { 4, 0xF4A1 },
     { 6, 0xC000 },
-    { 6, 0xC670 },
-    { 6, 0xCCDD },
-    { 6, 0xD331 },
-    { 6, 0xD939 },
-    { 4, 0xFA97 },
-    { 3, 0xFC7F },
-    { 4, 0xFF02 },
-    { 6, 0xDF33 },
-    { 6, 0xDFEC }
+    { 6, 0xC678 },
+    { 6, 0xCCE8 },
+    { 6, 0xD355 },
+    { 6, 0xD9A9 },
+    { 6, 0xDFB1 },
+    { 4, 0xFB77 },
+    { 6, 0xE5AB },
+    { 3, 0xFD23 },
+    { 3, 0xFE02 }
 };
 
-#define LEVEL1C_BIN                     0
-#define LEVEL2C_BIN                     1
+#define LEVEL3C_BIN                     0
+#define LEVEL1C_BIN                     1
 #define LEVEL0C_BIN                     2
-#define LEVEL3C_BIN                     3
-#define LEVEL4C_BIN                     4
+#define LEVEL4C_BIN                     3
+#define LEVEL2C_BIN                     4
 #define ZONEA_BIN                       5
 #define ZONEB_BIN                       6
-#define INTRO7_BIN                      7
-#define INTRO5_BIN                      8
-#define INTRO6_BIN                      9
-#define INTRO2_BIN                      10
-#define ENDING_BIN                      11
-#define INTRO4_BIN                      12
-#define INTRO3_BIN                      13
-#define INTRO1_BIN                      14
-#define DEDICADO_BIN                    15
-#define LOGO_BIN                        16
-#define CONTROLS_BIN                    17
-#define MARCO_BIN                       18
-#define LEVEL_SCREEN_TSC_BIN            19
-#define TITLE_BIN                       20
+#define TITLE_BIN                       7
+#define INTRO7_BIN                      8
+#define INTRO5_BIN                      9
+#define INTRO6_BIN                      10
+#define INTRO2_BIN                      11
+#define ENDING_BIN                      12
+#define INTRO4_BIN                      13
+#define INTRO3_BIN                      14
+#define INTRO1_BIN                      15
+#define DEDICADO_BIN                    16
+#define LOGO_BIN                        17
+#define CONTROLS_BIN                    18
+#define MARCO_BIN                       19
+#define LEVEL_SCREEN_TSC_BIN            20
 

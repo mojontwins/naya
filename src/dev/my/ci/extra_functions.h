@@ -26,6 +26,43 @@ void move_boss(signed char increase_x, signed char increase_y, unsigned char til
     
 }
 
+void move_boss_3(signed char xinc, signed char yinc) {
+    boss_x = boss_x + xinc;
+    boss_y = boss_y + yinc;
+    _x = boss_x;_y = boss_y;    _t = 39;draw_invalidate_coloured_tile_gamearea ();
+    _x = boss_x + 1;_y = boss_y;_t = 40;draw_invalidate_coloured_tile_gamearea ();
+    _x = boss_x + 2;_y = boss_y;_t = 41;draw_invalidate_coloured_tile_gamearea ();
+    _x = boss_x + 1;_y = boss_y - 1;_t = 42;draw_invalidate_coloured_tile_gamearea ();
+
+    if (xinc != 0) {
+        if (xinc < 0) {
+            _x = boss_x + 2;_y = boss_y - 1;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+            _x = boss_x + 3;_y = boss_y;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+        } else {
+            _x = boss_x - 1;_y = boss_y;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+            _x = boss_x;_y = boss_y - 1;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+        }
+    }
+    if (yinc != 0) {
+        if (yinc < 0) {
+            _x = boss_x;_y = boss_y + 1;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+            _x = boss_x + 1;_y = boss_y + 1;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+            _x = boss_x + 2;_y = boss_y + 1;     _t = 0;draw_invalidate_coloured_tile_gamearea ();
+        } else {
+            _x = boss_x;_y = boss_y - 1;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+            _x = boss_x+2;_y = boss_y - 1;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+            _x = boss_x+1;_y = boss_y - 2;_t = 0;draw_invalidate_coloured_tile_gamearea ();
+        }
+    }
+
+    if ((p_tx >= boss_x && p_tx <=  boss_x + 2)
+        && (p_ty == boss_y || p_ty == boss_y - 1) 
+        && p_estado == EST_NORMAL) {
+        p_killme = 1;
+    }
+    
+}
+
 
 void circle_movement() {
     _en_x+=boss_vector_path[vector_counter].x;
@@ -44,6 +81,46 @@ void lunge(unsigned char increase) {
         }
     } 
     boss_action_counter--;
+}
+
+void play_boss3() {
+    if (faps & 1) {
+        if (boss_action == 0) {
+            if (boss_aux_1 == 1) {
+                move_boss_3(-1, 0);
+                if (boss_x == 0) {
+                    boss_aux_1 = 2;
+                }
+            } else if (boss_aux_1 == 2) {
+                move_boss_3(1, 0);
+                if (boss_x > 11) {
+                    boss_aux_1 = 1;
+                    b_aux++;
+                    if (b_aux == 4) {
+                        boss_aux_1 = 3;
+                    }
+                }
+            } else if (boss_aux_1 == 3) {
+                if (boss_aux_2 == 1) {
+                    move_boss_3(0, 1);
+                    if (boss_y == 8) {
+                        boss_action = 0;
+                        boss_aux_1 = 1;
+                        b_aux = 0;
+                        boss_aux_2 = 2;
+                    }
+                } else if (boss_aux_2 == 2) {
+                    move_boss_3(0, -1);
+                    if (boss_y == 1) {
+                        boss_action = 0;
+                        boss_aux_1 = 1;
+                        b_aux = 0;
+                        boss_aux_2 = 1;
+                    }
+                }
+            }
+        }
+    }  
 }
 
 void play_boss2() {
@@ -187,8 +264,7 @@ void draw_sub_boss_life() {
         _x = 31; _y = 21 - _en_life_boss; _t = 5; _gp_gen =  (unsigned char *)("$"); print_str ();
     } else {
         _x = 31; _y = 21 - _en_life_boss; _t = 5; _gp_gen =  (unsigned char *)("!"); print_str ();
-    }
-    
+    } 
 }
 
 void draw_candy_level() {
@@ -283,6 +359,10 @@ void get_object(unsigned int p) {
     _x = p_tx; _y = p_ty; _t = 1; _n = 0; update_tile();
    save_object();
    print_points();
+   check_points();
+}
+
+void check_points() {
     if (points >= 10000 && umbral_points == 0) {
         up_live(1);
     }
@@ -294,7 +374,6 @@ void get_object(unsigned int p) {
     if (points >= 40000 && umbral_points == 2) {
         up_live(3);
     }
-
 }
 
 void print_points() {    
