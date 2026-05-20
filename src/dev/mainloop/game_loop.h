@@ -205,7 +205,7 @@
 						level++;
 						slevel = 0;
  						prepare_level ();
-						#include "my/level_screen.h";
+						#include "my/level_screen.h"
 					} else {
 						#ifdef SHOW_TIMER_OVER
 						#ifndef TIMER_SCRIPT_0

@@ -115,6 +115,9 @@ if (stage_clear_animation == 1) {
         
         timer_on = 1;
         do_not_move = 0;
+
+        sp_UpdateNow();
+        get_resource (MARCO_BIN, 16384);
          
     }
 }
